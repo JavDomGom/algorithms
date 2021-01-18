@@ -47,21 +47,22 @@ int main (int argc, char *argv[])
     
     /* 1. A calculates "G^secret_a mod p" to send to B. */
     set_Gx_mod_p (secret_a, p, G, G_pow_a, Ga_mod_p);
+    gmp_printf ("Ga_mod_p:\t%Zd\n", Ga_mod_p);
 
     /* 2. B calculates "G^secret_b mod p" to send to A. */
     set_Gx_mod_p (secret_b, p, G, G_pow_b, Gb_mod_p);
-    
+    gmp_printf ("Gb_mod_p:\t%Zd\n", Gb_mod_p);
+
     /* 3. B receives "G^a mod p" and calculates "(G^a)^b mod p". */
     set_Gxy_mod_p (Ga_mod_p, secret_b, p, Ga_pow_b, Gab_mod_p);
+    gmp_printf ("Gab_mod_p:\t%Zd\n", Gab_mod_p);
 
     /* 4. A receives "G^b mod p" and calculates "(G^b)^a mod p". */
     set_Gxy_mod_p (Gb_mod_p, secret_a, p, Gb_pow_a, Gba_mod_p);
+    gmp_printf ("Gba_mod_p:\t%Zd\n", Gba_mod_p);
 
     /* 5. Shared Key between A and B is "G^(a * b) mod p". */
     set_shared_K (G, secret_a, secret_b, p, G_pow_ab, shared_K);
-
-    gmp_printf ("Gab_mod_p:\t%Zd\n", Gab_mod_p);
-    gmp_printf ("Gba_mod_p:\t%Zd\n", Gba_mod_p);
     gmp_printf ("shared_K:\t%Zd\n", shared_K);
 
     /* Free memory. */
