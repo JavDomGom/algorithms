@@ -49,8 +49,7 @@ def main():
 
     quickSort(arr, 0, n-1)
 
-    for i in range(n):
-        print("%d" % arr[i])
+    print(arr)
 
 
 if __name__ == '__main__':
