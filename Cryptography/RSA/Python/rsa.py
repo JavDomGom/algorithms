@@ -1,12 +1,16 @@
 # Bob vars.
-n_b = 65669
-e_b = 35
-d_b = 53771
+p_b = 97         # Prime number, secret.
+q_b = 677        # Prime number, secret.
+e_b = 35         # Part of the pub/priv keys.
+d_b = 53771      # Public key part (d_b, e_b), secret.
+n_b = p_b * q_b  # Private key part (n_b, e_b).
 
 # Alice vars.
-n_a = 66331
-e_a = 25
-d_a = 18377
+p_a = 113        # Prime number, secret.
+q_a = 587        # Prime number, secret.
+e_a = 25         # Part of the pub/priv keys.
+d_a = 18377      # Public key part (d_b, e_b), secret.
+n_a = p_a * q_a  # Private key part (n_a, e_a).
 
 M = 55967  # Secret msg.
 print(f'0. Secret message is: {M}')
