@@ -35,13 +35,13 @@ d_b * G = {d_b} * {G} = {Q_b}'
 )
 
 # d_b * Q_a
-field_a = SubGroup(p=p, g=Q_a, n=d_a, h=1)
+field_a = SubGroup(p=p, g=Q_a, n=n, h=1)
 curve_a = Curve(a=a, b=b, field=field_a, name='d_b * Q_a')
 G_a_subgroup = [(lambda p: (p.x, p.y))(k * curve_a.g) for k in range(n)]
 secret_a = G_a_subgroup[d_b]
 
 # d_a * Q_b
-field_b = SubGroup(p=p, g=Q_b, n=d_b, h=1)
+field_b = SubGroup(p=p, g=Q_b, n=n, h=1)
 curve_b = Curve(a=a, b=b, field=field_b, name='d_a * Q_b')
 G_b_subgroup = [(lambda p: (p.x, p.y))(k * curve_b.g) for k in range(n)]
 secret_b = G_b_subgroup[d_a]
