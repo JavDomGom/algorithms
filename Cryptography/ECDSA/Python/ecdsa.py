@@ -5,7 +5,7 @@ from tinyec.ec import SubGroup, Curve
 
 # Elliptic curve: y² = x³ + ax + b mod p
 
-print('1. Signature keys generation and verification.') 
+print('1. Signature keys generation and verification.')
 
 # Parameters:
 a = 3
@@ -38,7 +38,7 @@ else:
 
 print(f'\t- Alice\'s private key: {d_a}, and public key: {Q_a}.\n')
 
-print('2. Signature process.') 
+print('2. Signature process.')
 
 k = 14                  # Alice selects a random number k in range [1, n-1].
 print(f'\t- k: {k}')
@@ -63,7 +63,7 @@ print(f'\t- s: {s}')
 m_sig = (r, s)
 print(f'\t- m signature: {m_sig}\n')
 
-print(f'3. Verification process.')
+print('3. Verification process.')
 
 if r in rng and s in rng:
     print(f'\t- OK: {r} and {s} in range [1, {n}].')
